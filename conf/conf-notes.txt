@@ -1,2 +1,2 @@
 Common targets are:
-    rose-minimal rose-netboot rose-full rose-full-gfx
+    rose-image-minimal rose-image-netboot rose-image rose-image-full rose-image-gfx

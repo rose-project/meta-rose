@@ -65,6 +65,8 @@ SSTATE_DIR ?= "${TOPDIR}/sstate-cache"
 #
 TMPDIR = "${TOPDIR}/tmp"
 
+TCLIBCAPPEND = ""
+
 #
 # Default policy config
 #
@@ -208,7 +210,26 @@ PACKAGECONFIG_append_pn-nativesdk-qemu = " sdl"
 ASSUME_PROVIDED += "libsdl-native"
 
 
+# speedup settings
+#PARALLEL_MAKE = "-j4"
+#BB_NUMBER_THREADS = "4"
+
+
+# save image build info
+#INHERIT += "buildhistory"
+
+# dont keep build output for every package
+#INHERIT += "rm_work"
+# select what build outputs should keept
+# RM_WORK_EXCLUDE += "u-boot"
+# remove old images
+RM_OLD_IMAGE= "1"
+
+
 # CONF_VERSION is increased each time build/conf/ changes incompatibly and is used to
 # track the version of this file when it was generated. This can safely be ignored if
 # this doesn't mean anything to you.
 CONF_VERSION = "1"
+
+# mask rescipies which could make troubles
+#BBMASK = "meta-raspberrypi-bsp/recipes-qt"

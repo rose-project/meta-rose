@@ -35,7 +35,7 @@ MACHINE ??= "raspberrypi2"
 #
 # The default is a downloads directory under TOPDIR which is the build directory.
 #
-#DL_DIR ?= "${TOPDIR}/downloads"
+DL_DIR ?= "${TOPDIR}/downloads"
 
 #
 # Where to place shared-state files
@@ -51,7 +51,7 @@ MACHINE ??= "raspberrypi2"
 #
 # The default is a sstate-cache directory under TOPDIR.
 #
-#SSTATE_DIR ?= "${TOPDIR}/sstate-cache"
+SSTATE_DIR ?= "${TOPDIR}/sstate-cache"
 
 #
 # Where to place the build output
@@ -63,7 +63,7 @@ MACHINE ??= "raspberrypi2"
 #
 # The default is a tmp directory under TOPDIR.
 #
-#TMPDIR = "${TOPDIR}/tmp"
+TMPDIR = "${TOPDIR}/tmp"
 
 #
 # Default policy config
@@ -74,12 +74,6 @@ MACHINE ??= "raspberrypi2"
 # these defaults.
 #
 DISTRO ?= "rose-base"
-# As an example of a subclass there is a "bleeding" edge policy configuration
-# where many versions are set to the absolute latest code from the upstream 
-# source control systems. This is just mentioned here as an example, its not
-# useful to most new users.
-# DISTRO ?= "poky-bleeding"
-
 #
 # Package Management configuration
 #

@@ -1,0 +1,15 @@
+#
+LCONF_VERSION = "1"
+
+BBPATH = "${TOPDIR}"
+BBFILES ?= ""
+
+BBLAYERS ?= " \
+    ##OEROOT##/meta \
+    ##OEROOT##/meta-raspberrypi-bsp \
+    ##OEROOT##/meta-rose \
+    "
+BBLAYERS_NON_REMOVABLE ?= " \
+    ##OEROOT##/meta \
+    ##OEROOT##/meta-rose \
+    "

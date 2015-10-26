@@ -1,0 +1,2 @@
+Common targets are:
+    rose-image-minimal rose-image-netboot rose-image rose-image-full rose-image-gfx

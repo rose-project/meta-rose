@@ -1,2 +1,7 @@
 Common targets are:
-    rose-image-minimal rose-image-netboot rose-image rose-image-full rose-image-gfx
+    rose-image-minimal
+    rose-image-gfx
+    rose-image-full
+
+For SDK:
+ bitbake rose-image-sdk -c populate_sdk

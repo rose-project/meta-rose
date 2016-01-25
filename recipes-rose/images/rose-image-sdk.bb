@@ -1,14 +1,5 @@
-SUMMARY = "Creates console only recovery/primary images"
-LICENSE = "MIT"
+require rose-image-gfx.bb
 
-IMAGE_INSTALL = "packagegroup-core-boot ${ROOTFS_PKGMANAGE_BOOTSTRAP} ${CORE_IMAGE_EXTRA_INSTALL}"
+DESCRIPTION = "Creates a full developer SDK with all needed sources"
 
-#read-only-rootfs
-IMAGE_FEATURES += "ssh-server-openssh"  
-IMAGE_LINGUAS = " "
-
-inherit core-image
-
-IMAGE_ROOTFS_SIZE ?= "8192"
-
-
+IMAGE_FEATURES += "dev-pkgs"

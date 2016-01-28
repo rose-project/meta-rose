@@ -6,8 +6,15 @@ DESCRIPTION = "Minimal bootable image with network support and update mechanism.
 
 IMAGE_INSTALL = "packagegroup-core-boot ${ROOTFS_PKGMANAGE_BOOTSTRAP} ${CORE_IMAGE_EXTRA_INSTALL}"
 
+IMAGE_INSTALL += " kernel-modules \
+                   pciutils \
+                   usbutils \
+                   "
+
 #read-only-rootfs
 IMAGE_FEATURES += "ssh-server-openssh"
+
+
 IMAGE_LINGUAS = " "
 
 inherit core-image

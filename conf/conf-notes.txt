@@ -5,3 +5,4 @@ Common targets are:
 
 For SDK:
  bitbake rose-image-sdk -c populate_sdk
+

@@ -14,9 +14,10 @@ IMAGE_INSTALL += " kernel-modules \
 #read-only-rootfs
 IMAGE_FEATURES += "ssh-server-openssh"
 
-
 IMAGE_LINGUAS = " "
+
+EXTRA_IMAGEDEPENDS += "e2fsprogs-native"
+
 
 inherit core-image
 
-IMAGE_ROOTFS_SIZE ?= "8192"

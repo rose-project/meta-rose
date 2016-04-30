@@ -1,4 +1,4 @@
-require rose-image-gfx.bb
+require rose-image-minimal.bb
 
 DESCRIPTION = "Creates a full developer SDK with all needed sources"
 

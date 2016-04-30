@@ -22,7 +22,7 @@ LICENSE_FLAGS_WHITELIST = "commercial license"
 #MACHINE ?= "raspberrypi2"
 #
 # This sets the default machine to be raspberrypi2 if no other machine is selected:
-MACHINE ??= "raspberrypi2"
+MACHINE ??= "qemux86-64"
 
 #
 # Where to place downloads
@@ -209,11 +209,9 @@ PACKAGECONFIG_append_pn-qemu-native = " sdl"
 PACKAGECONFIG_append_pn-nativesdk-qemu = " sdl"
 ASSUME_PROVIDED += "libsdl-native"
 
-
 # speedup settings
 #PARALLEL_MAKE = "-j4"
 #BB_NUMBER_THREADS = "4"
-
 
 # save image build info
 #INHERIT += "buildhistory"
@@ -225,11 +223,8 @@ ASSUME_PROVIDED += "libsdl-native"
 # remove old images
 RM_OLD_IMAGE= "1"
 
-
 # CONF_VERSION is increased each time build/conf/ changes incompatibly and is used to
 # track the version of this file when it was generated. This can safely be ignored if
 # this doesn't mean anything to you.
 CONF_VERSION = "1"
 
-# mask rescipies which could make troubles
-#BBMASK = "meta-raspberrypi-bsp/recipes-qt"

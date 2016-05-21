@@ -12,4 +12,6 @@ S = "${WORKDIR}/git"
 
 inherit cmake
 
+BBCLASSEXTEND = "native"
+
 EXTRA_OEMAKE = ""

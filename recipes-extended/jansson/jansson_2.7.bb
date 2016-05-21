@@ -9,3 +9,5 @@ SRC_URI[md5sum] = "ffac352f9c5f80a6ae8145d451af2c0e"
 SRC_URI[sha256sum] = "459f2b7cf22fb676286723f26169a17cf111fbfb6f54e3dc2ec6b6f9f4a97bdc"
 
 inherit autotools pkgconfig
+
+BBCLASSEXTEND = "native"

@@ -1,0 +1,17 @@
+# short-description: Create a grub-efi image with primary/recovery partition
+# long-description: Creates a partitioned gpt efi disk image that the user
+# can directly dd to boot media.
+
+#     wic create rosebasic-gpt -e rose-image-minimal \
+#         --rootfs-dir rootfs_prim=rose-image-minimal
+#         --rootfs-dir rootfs_rec=rose-image-minimal-recovery
+
+
+part /boot/EFI --source bootimg-efi --sourceparams="loader=grub-efi" --ondisk sda --label boot --active --size 32  --align 1024 --overhead-factor=1.0
+part /         --source rootfs_prim                        --ondisk sda --fstype=ext4 --label primary   --size 512 --align 1024 --overhead-factor=1.0 --use-uuid
+part /home     --source rootfs_prim --submount-dir="/home" --ondisk sda --fstype=ext4 --label home      --size 128 --align 1024 --overhead-factor=1.0 --use-uuid
+part /recovery --source rootfs_rec                         --ondisk sda --fstype=ext4 --label recovery  --size 512 --align 1024 --overhead-factor=1.0 --use-uuid
+
+bootloader --ptable gpt --configfile="rosebasic-gpt.cfg"
+
+

@@ -18,7 +18,7 @@ IMAGE_LINGUAS = " "
 
 EXTRA_IMAGEDEPENDS += "e2fsprogs-native"
 
-IMAGE_FSTYPES += "hdddirect"
+IMAGE_FSTYPES += "hddimg"
 
 inherit core-image
 

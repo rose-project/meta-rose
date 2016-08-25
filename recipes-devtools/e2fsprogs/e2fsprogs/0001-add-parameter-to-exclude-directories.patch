@@ -41,7 +41,7 @@ index 0de5719..6436b61 100644
 +	{
 +		exclude_buf = malloc(strlen(exclude_dirs) + 1);
 +		memset(exclude_buf, "\0", sizeof(exclude_buf));
-+		printf("[*] Allocated %d",strlen(exclude_dirs) + 1);
++
 +	}
  
  	while ((dent = readdir(dh))) {
@@ -74,7 +74,7 @@ index 0de5719..6436b61 100644
 +						{
 +							strcat(exclude_buf,",");
 +						}
-+						strcat(exclude_buf, token + strlen(name) + 1); printf("token found: %s \n", token);
++						strcat(exclude_buf, token + strlen(name) + 1);
 +					} 
 +				} if(excpy) free(excpy);
 +				if(dontCopy)	// exclude copy content of this dir!

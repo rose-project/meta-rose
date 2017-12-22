@@ -1,12 +1,12 @@
 SUMMARY = "Jansson is a C library for encoding, decoding and manipulating JSON data"
 HOMEPAGE = "http://www.digip.org/jansson/"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=517b9b5519c82636e516e4969c5ce393"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=8b70213ec164c7bd876ec2120ba52f61"
 
 SRC_URI = "http://www.digip.org/jansson/releases/${BPN}-${PV}.tar.bz2"
 
-SRC_URI[md5sum] = "ffac352f9c5f80a6ae8145d451af2c0e"
-SRC_URI[sha256sum] = "459f2b7cf22fb676286723f26169a17cf111fbfb6f54e3dc2ec6b6f9f4a97bdc"
+SRC_URI[md5sum] = "8f85f653fba3ac8220ad8f2f47646ef1"
+SRC_URI[sha256sum] = "241125a55f739cd713808c4e0089986b8c3da746da8b384952912ad659fa2f5a"
 
 inherit autotools pkgconfig
 

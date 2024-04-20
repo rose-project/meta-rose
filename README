@@ -1,44 +1,14 @@
 # meta-rose
 
-Reliable Operating System Enablement (ROSE) Layer provides a basic fail-safe 
-image configuration which could be used for embedded systems.
+ROSE distribution layer.
 
 Dependencies
 ============
 
 This layer depends on:
 
-  URI: git://git.yoctoproject.org/poky.git
-  layers: meta meta-yocto
-  branch: daisy
-
-
-Table of Contents
-=================
-
-  I. Adding the rose layer to your build
- II. Misc
-
-I. Adding the rose layer to your build
-=================================================
-
-In order to use this layer, you need to make the build system aware of
-it.
-
-Assuming the rose layer exists at the top-level of your
-yocto build tree, you can add it to the build system by adding the
-location of the rose layer to bblayers.conf, along with any
-other layers needed. e.g.:
-
-  BBLAYERS ?= " \
-    /path/to/yocto/meta \
-    /path/to/yocto/meta-yocto \
-    /path/to/yocto/meta-yocto-bsp \
-    /path/to/yocto/meta-rose \
-    "
-
-
-II. Misc
-========
+  URI: git://git.openembedded.org/openembedded-core
+  layers: meta
+  branch: scarthgap
 
 

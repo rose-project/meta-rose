@@ -1,9 +1,8 @@
 # meta-rose
 
-ROSE distribution layer.
+OpenEmbedded distribution layer for the ROSE reference distribution.
 
-Dependencies
-============
+## Dependencies
 
 This layer depends on:
 

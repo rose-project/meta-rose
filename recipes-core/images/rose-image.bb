@@ -5,5 +5,8 @@ IMAGE_INSTALL:append = " \
     vulkan-headers \
     vulkan-loader \
     kmscube \
+    iproute2 \
+    vim \
+    python3 \
 "
 

@@ -10,4 +10,7 @@ This layer depends on:
   layers: meta
   branch: scarthgap
 
+  URI: git://git.openembedded.org/meta-openembedded
+  layers: meta-oe
+  branch: scarthgap
 

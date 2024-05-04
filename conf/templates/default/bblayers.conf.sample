@@ -9,4 +9,5 @@ BBLAYERS ?= " \
   ##OEROOT##/meta \
   ##OEROOT##/../meta-rose \
   ##OEROOT##/../meta-raspberrypi-bsp \
+  ##OEROOT##/../meta-openembedded/meta-oe \
   "

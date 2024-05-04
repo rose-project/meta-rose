@@ -7,6 +7,7 @@ IMAGE_INSTALL:append = " \
     kmscube \
     iproute2 \
     ifupdown \
+    ethtool \
     openssh \
     vim \
     python3 \

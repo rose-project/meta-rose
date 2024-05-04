@@ -6,7 +6,10 @@ IMAGE_INSTALL:append = " \
     vulkan-loader \
     kmscube \
     iproute2 \
+    ifupdown \
+    openssh \
     vim \
     python3 \
+    iperf2 \
 "
 

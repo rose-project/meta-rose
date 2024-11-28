@@ -12,5 +12,6 @@ IMAGE_INSTALL:append = " \
     vim \
     python3 \
     iperf2 \
+    mdio-tool \
 "
 

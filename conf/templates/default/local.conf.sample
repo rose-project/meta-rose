@@ -14,7 +14,7 @@ PACKAGE_CLASSES ?= "package_ipk"
 #SDKMACHINE ?= "i686"
 
 #
-EXTRA_IMAGE_FEATURES ?= "debug-tweaks"
+EXTRA_IMAGE_FEATURES ?= ""
 
 USER_CLASSES ?= "buildstats"
 

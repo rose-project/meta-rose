@@ -1,8 +1,6 @@
 Common targets are:
-    rose-image-minimal
-    rose-image-gfx
-    rose-image-multimedia
+    rose-image
 
 For SDK:
- bitbake rose-image-sdk -c populate_sdk
+ bitbake rose-image -c populate_sdk
 

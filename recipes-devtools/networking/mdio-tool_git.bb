@@ -7,6 +7,7 @@ SRC_URI = "git://github.com/PieVo/mdio-tool.git;protocol=https;branch=master \
            file://0001-Fix-CMake-minimum-version.patch \
            "
 
+PV = "1.0+git"
 SRCREV = "4facab64880adecbb7874c6a48b307cec04d08e3"
 
 inherit cmake

@@ -8,9 +8,9 @@ This layer depends on:
 
   URI: git://git.openembedded.org/openembedded-core
   layers: meta
-  branch: scarthgap
+  branch: wrynose
 
   URI: git://git.openembedded.org/meta-openembedded
   layers: meta-oe
-  branch: scarthgap
+  branch: wrynose
 

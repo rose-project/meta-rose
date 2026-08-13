@@ -1,0 +1,53 @@
+From 7155459be7ed10f4bc654f8b5ac24336b1144e82 Mon Sep 17 00:00:00 2001
+From: Josef Raschen <josef@raschen.org>
+Date: Thu, 2 Jul 2026 09:35:27 +0200
+Subject: [PATCH 2/5] net: phy: microchip_t1: restore lan887x interrupt mask
+ after config_aneg
+
+lan887x_config_aneg() issues a chip soft-reset (LAN887X_CHIP_SOFT_RST)
+as required by the speed-change errata. The reset leaves all interrupts
+masked and nothing re-enables them afterwards - unlike the chip
+hard-reset path in lan887x_cd_reset(), which re-runs config_intr()
+after resetting the chip. Reconfiguring a running interface, e.g. with
+"ethtool -s ... master-slave forced-master", therefore silently
+disables link-state interrupts and later link changes go unnoticed when
+the PHY operates in interrupt mode.
+
+Re-apply the interrupt configuration at the end of config_aneg().
+Calling the config_intr callback directly from the driver has precedent
+in micrel.c.
+
+Fixes: 5fad1c1a09ac ("net: phy: microchip_t1: Interrupt support for lan887x")
+Assisted-by: Claude:claude-fable-5
+Upstream-Status: Pending
+---
+ drivers/net/phy/microchip_t1.c | 13 ++++++++++++-
+ 1 file changed, 12 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/net/phy/microchip_t1.c b/drivers/net/phy/microchip_t1.c
+index c6a2beb78325..65dc585510bf 100644
+--- a/drivers/net/phy/microchip_t1.c
++++ b/drivers/net/phy/microchip_t1.c
+@@ -1496,7 +1496,18 @@ static int lan887x_config_aneg(struct phy_device *phydev)
+ 	if (ret < 0)
+ 		return ret;
+ 
+-	return lan887x_phy_reconfig(phydev);
++	ret = lan887x_phy_reconfig(phydev);
++	if (ret < 0)
++		return ret;
++
++	/* The chip soft-reset above leaves all interrupts masked; re-apply
++	 * the interrupt configuration so link events keep being reported in
++	 * IRQ mode.
++	 */
++	if (phy_interrupt_is_valid(phydev))
++		ret = phydev->drv->config_intr(phydev);
++
++	return ret;
+ }
+ 
+ static int lan887x_probe(struct phy_device *phydev)
+-- 
+2.53.0
+

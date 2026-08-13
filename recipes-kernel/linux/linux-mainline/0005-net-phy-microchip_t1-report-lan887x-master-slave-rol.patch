@@ -1,0 +1,47 @@
+From 3e0171503644ee71414893fa051029ee9b768a50 Mon Sep 17 00:00:00 2001
+From: Josef Raschen <josef@raschen.org>
+Date: Thu, 2 Jul 2026 09:38:13 +0200
+Subject: [PATCH 5/5] net: phy: microchip_t1: report lan887x master/slave role
+ before link-up
+
+phydev->master_slave_get is only populated by read_status(), which does
+not run before the PHY is started. Until then it reads
+MASTER_SLAVE_CFG_UNSUPPORTED, so configuring the role of an interface
+that is still administratively down, e.g. from an ifupdown pre-up hook
+running "ethtool -s ... master-slave forced-slave", fails with
+"master/slave configuration not supported by device".
+
+Read the role back from the hardware at the end of config_init() so it
+is known as soon as the PHY is initialized.
+
+Fixes: 0941c8328234 ("net: phy: microchip_t1: Adds support for lan887x phy")
+Assisted-by: Claude:claude-fable-5
+Upstream-Status: Pending
+---
+ drivers/net/phy/microchip_t1.c | 10 +++++++++-
+ 1 file changed, 9 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/net/phy/microchip_t1.c b/drivers/net/phy/microchip_t1.c
+index 8dc73175e989..8c4dcb01e341 100644
+--- a/drivers/net/phy/microchip_t1.c
++++ b/drivers/net/phy/microchip_t1.c
+@@ -1389,7 +1389,15 @@ static int lan887x_phy_init(struct phy_device *phydev)
+ 		return ret;
+ 
+ 	/* PHY interface setup */
+-	return lan887x_config_phy_interface(phydev);
++	ret = lan887x_config_phy_interface(phydev);
++	if (ret < 0)
++		return ret;
++
++	/* Populate master_slave_get so that the master/slave role can be
++	 * changed through ethtool before the first link-up; otherwise
++	 * ethtool rejects the request as not supported by the device.
++	 */
++	return genphy_c45_pma_baset1_read_master_slave(phydev);
+ }
+ 
+ static int lan887x_100M_setup(struct phy_device *phydev)
+-- 
+2.53.0
+

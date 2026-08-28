@@ -16,6 +16,13 @@ PACKAGE_CLASSES ?= "package_ipk"
 #
 EXTRA_IMAGE_FEATURES ?= ""
 
+# Development only: ship fixed SSH host keys, generated once into
+# ${TOPDIR}/ssh-hostkeys and reused by every build from this directory, so a
+# reflashed device keeps its SSH identity. Every image built here then shares
+# one private host key: never enable this for production images.
+#EXTRA_IMAGE_FEATURES += "ssh-fixed-hostkeys"
+#ROSE_SSH_HOSTKEY_DIR ?= "${TOPDIR}/ssh-hostkeys"
+
 USER_CLASSES ?= "buildstats"
 
 

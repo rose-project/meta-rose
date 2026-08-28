@@ -7,9 +7,9 @@ inherit kernel kernel-yocto
 LINUX_VERSION ?= "${PV}"
 LINUX_VERSION_EXTENSION = "-rose"
 
-KBRANCH = "linux-7.1.y"
+KBRANCH = "linux-7.2.y"
 
-SRCREV = "114456a9c542d933387517bb22561668c25a5b59"
+SRCREV = "52c36105f76e96b638152a42e735f2e7767ed946"
 SRC_URI = " \
     git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git;protocol=https;branch=${KBRANCH} \
     file://0001-net-phy-microchip_t1-make-lan887x-config_init-self-s.patch \

@@ -7,16 +7,11 @@ inherit kernel kernel-yocto
 LINUX_VERSION ?= "${PV}"
 LINUX_VERSION_EXTENSION = "-rose"
 
-KBRANCH = "linux-7.2.y"
+KBRANCH = "linux-7.3.y"
 
-SRCREV = "52c36105f76e96b638152a42e735f2e7767ed946"
+SRCREV = "79a907609d53d5cd645b42c11550d295d43abf99"
 SRC_URI = " \
     git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git;protocol=https;branch=${KBRANCH} \
-    file://0001-net-phy-microchip_t1-make-lan887x-config_init-self-s.patch \
-    file://0002-net-phy-microchip_t1-restore-lan887x-interrupt-mask-.patch \
-    file://0003-net-phy-microchip_t1-poll-lan887x-statistics-periodi.patch \
-    file://0004-net-phy-microchip_t1-recover-lan887x-from-link-loss.patch \
-    file://0005-net-phy-microchip_t1-report-lan887x-master-slave-rol.patch \
     file://industrial-ethernet.cfg \
     file://usb-ethernet.cfg \
     "
